@@ -5,118 +5,119 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>유튜브 타임코드로 피드백 주는 법</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet">
     <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            overflow: hidden; /* 스크롤바 제거 */
+        }
         body {
             font-family: 'Noto Sans KR', 'Inter', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f9fafb; /* Light gray background */
         }
         .gradient-text {
-            background: linear-gradient(to right, #4F46E5, #EC4899);
+            background: linear-gradient(to right, #FF007A, #4F46E5);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         .card {
             background-color: white;
-            border-radius: 1.5rem; /* Increased border-radius */
-            padding: 2.5rem; /* Increased padding */
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.05);
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-radius: 1rem;
+            padding: 1.75rem; /* p-7 */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+            border: 1px solid #e5e7eb;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
         }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body>
 
-    <div class="container mx-auto px-4 py-12 md:py-20">
+    <div class="container mx-auto px-4 py-8 w-full max-w-7xl">
 
         <!-- Header -->
-        <header class="text-center mb-16">
-            <h1 class="text-4xl md:text-6xl font-bold tracking-tight mb-4">
-                유튜브 영상 피드백,<br class="md:hidden"> <span class="gradient-text">타임코드로 소통하는 비결</span>
+        <header class="text-center mb-8">
+            <h1 class="text-3xl md:text-5xl font-black tracking-tight mb-3">
+                유튜브 피드백, <span class="gradient-text">시간으로 말하세요</span>
             </h1>
-            <p class="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-                더 이상 "아까 그 부분이요..." 라고 말하지 마세요. 타임코드를 사용하면 영상의 정확한 시점을 콕 집어, 누구나 명확하게 이해하는 피드백을 남길 수 있습니다.
+            <p class="text-base md:text-lg text-gray-600 max-w-4xl mx-auto">
+                타임코드는 피드백의 정확성(🎯), 효율성(⚡️), 그리고 체계성(✍️)을 높여주는 가장 강력한 소통 도구입니다.
             </p>
         </header>
 
         <!-- Main Content Grid -->
-        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
+        <main class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-            <!-- Card 1: Direct Input -->
-            <div class="card md:col-span-2 lg:col-span-1">
+            <!-- Method 1: Direct Input -->
+            <div class="card">
                 <div class="flex items-center mb-4">
-                    <span class="bg-indigo-100 text-indigo-600 p-3 rounded-full mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
-                    </span>
-                    <h2 class="text-2xl font-bold">1. 직접 입력 (기본)</h2>
+                    <span class="bg-indigo-100 text-indigo-600 w-8 h-8 flex items-center justify-center rounded-full mr-3 text-lg font-black">1</span>
+                    <h3 class="text-xl font-bold">직접 입력 (기본)</h3>
                 </div>
-                <p class="text-gray-600 mb-6">가장 기본적이면서 확실한 방법입니다. PC와 모바일 어디서든 사용할 수 있습니다.</p>
-                <div class="bg-gray-100 p-4 rounded-lg text-left">
-                    <p class="font-semibold text-gray-700">입력 형식:</p>
-                    <code class="text-indigo-600 block bg-white p-3 rounded mt-2">MM:SS (분:초)</code>
-                    <code class="text-indigo-600 block bg-white p-3 rounded mt-2">HH:MM:SS (시:분:초)</code>
-                    <p class="font-semibold text-gray-700 mt-4">사용 예시:</p>
-                    <p class="text-sm text-gray-800 mt-2 bg-white p-3 rounded">
-                        <span class="font-bold text-blue-600">02:45</span> 화면 전환이 너무 빠른 것 같아요. <br>
-                        <span class="font-bold text-blue-600">15:10</span> 배경음악 소리가 갑자기 커져요.
+                <p class="text-gray-600 mb-4 text-sm flex-grow">PC와 모바일 어디서든 사용 가능한 가장 기본적이고 확실한 방법입니다.</p>
+                <div class="bg-gray-100 p-3 rounded-lg text-left">
+                    <p class="font-semibold text-gray-700 text-sm">입력 형식: <code class="text-indigo-600">MM:SS</code></p>
+                    <p class="font-semibold text-gray-700 text-sm mt-2">사용 예시:</p>
+                    <p class="text-xs text-gray-800 mt-1 bg-white p-2 rounded">
+                        <span class="font-bold text-blue-600">02:45</span> 화면 전환이 너무 빨라요.<br>
+                        <span class="font-bold text-blue-600">15:10</span> 배경음악 볼륨을 조절해주세요.
                     </p>
                 </div>
-                 <p class="mt-4 text-sm text-gray-500">댓글을 등록하면 시간이 파란색 링크로 자동 변환되어 클릭 시 해당 시간으로 바로 이동합니다.</p>
             </div>
 
-            <!-- Card 2: Copy URL on PC -->
-            <div class="card md:col-span-2">
-                 <div class="flex items-center mb-4">
-                    <span class="bg-pink-100 text-pink-600 p-3 rounded-full mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="14" x="8" y="8" rx="2" ry="2"/><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"/></svg>
-                    </span>
-                    <h2 class="text-2xl font-bold">2. PC에서 가장 편리한 방법: URL 복사</h2>
+            <!-- Method 2: Visual Guide -->
+            <div class="card">
+                <div class="flex items-center mb-4">
+                    <span class="bg-pink-100 text-pink-600 w-8 h-8 flex items-center justify-center rounded-full mr-3 text-lg font-black">2</span>
+                    <h3 class="text-xl font-bold">PC에서 URL 복사 (추천)</h3>
                 </div>
-                <p class="text-gray-600 mb-6">클릭 두 번으로 가장 정확하고 빠르게 타임코드를 만들 수 있습니다. 다른 메신저로 공유할 때도 매우 유용합니다.</p>
-                <ol class="list-decimal list-inside space-y-4 text-gray-700">
-                    <li>피드백을 남길 장면에서 영상을 **일시 정지**합니다.</li>
-                    <li>영상 화면에 **마우스 오른쪽 버튼**을 클릭합니다.</li>
-                    <li>나타나는 메뉴에서 **"현재 시간에 동영상 URL 복사"**를 선택합니다.</li>
-                    <li>댓글 창에 붙여넣기(`Ctrl+V`)하면 완료!</li>
-                </ol>
-                 <div class="mt-6 bg-gray-100 p-4 rounded-lg">
-                    <p class="font-semibold text-gray-700 mb-2">복사되는 링크 형식:</p>
-                    <code class="text-sm break-all text-pink-600">https://youtu.be/영상고유주소?t=165</code>
-                    <p class="mt-2 text-sm text-gray-500">시간이 초 단위로 정확하게 입력되어 오차가 없습니다.</p>
+                <p class="text-gray-600 mb-4 text-sm flex-grow">클릭 두 번으로 가장 정확하고 빠르게 타임코드를 만드는 방법입니다.</p>
+                
+                <div class="bg-gray-100 p-3 rounded-lg flex flex-col justify-center h-full">
+                    <div class="flex items-center gap-4">
+                        <!-- Visual -->
+                        <div class="w-1/3 flex-shrink-0">
+                            <div class="bg-black aspect-square rounded-lg flex items-center justify-center relative shadow-inner">
+                               <svg class="w-8 h-8 text-white opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+                               <div class="absolute -bottom-2 -right-2 bg-white p-1 rounded-full shadow">
+                                   <svg class="w-5 h-5 text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3h3M3 21h3M21 3h-3M21 21h-3M3 12h3M12 3v3M12 21v-3M18 12h3M12 12l-2-3-2-3-2 3-2 3h4v4h4v-4h4z"/></svg>
+                               </div>
+                            </div>
+                        </div>
+                        <!-- Steps -->
+                        <div class="w-2/3">
+                            <ol class="space-y-2 text-sm">
+                                <li class="font-semibold">① 영상에서 우클릭</li>
+                                <li class="font-semibold text-pink-700">② "현재 시간에 동영상 URL 복사"</li>
+                                <li class="font-semibold">③ 댓글에 붙여넣기</li>
+                            </ol>
+                        </div>
+                    </div>
                 </div>
             </div>
-            
-            <!-- Card 3: Systematic Feedback -->
-            <div class="card lg:col-span-3">
-                 <div class="flex items-center mb-4">
-                    <span class="bg-emerald-100 text-emerald-600 p-3 rounded-full mr-4">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/></svg>
-                    </span>
-                    <h2 class="text-2xl font-bold">PRO-TIP: 체계적인 피드백 댓글 작성법</h2>
+
+            <!-- Method 3: Pro-Tip -->
+            <div class="card">
+                <div class="flex items-center mb-4">
+                    <span class="bg-emerald-100 text-emerald-600 w-8 h-8 flex items-center justify-center rounded-full mr-3 text-lg font-black">3</span>
+                    <h3 class="text-xl font-bold">체계적인 피드백 (Pro-Tip)</h3>
                 </div>
-                <p class="text-gray-600 mb-6">여러 피드백을 남길 때는 한 댓글에 목록처럼 정리해 보세요. 피드백을 확인하고 수정하는 사람이 훨씬 편하게 작업할 수 있습니다.</p>
-                <div class="bg-gray-800 text-white p-6 rounded-lg font-mono text-sm leading-relaxed shadow-lg">
-                    <p><span class="text-gray-400">&gt;</span> 영상 잘 봤습니다! 몇 가지 피드백 드립니다.</p>
-                    <br>
-                    <p><span class="text-cyan-400">00:35</span> <span class="text-gray-300">인트로 음악 볼륨이 조금 큰 것 같아요.</span></p>
-                    <p><span class="text-cyan-400">01:12</span> <span class="text-gray-300">자막에 오타가 있습니다. ('되요' -> '돼요')</span></p>
-                    <p><span class="text-cyan-400">03:40</span> <span class="text-gray-300">이 부분 효과음이 영상이랑 잘 어울리네요! 👍</span></p>
-                    <p><span class="text-cyan-400">05:22</span> <span class="text-gray-300">마무리 멘트 속도가 조금 빠른 감이 있습니다.</span></p>
+                <p class="text-gray-600 mb-4 text-sm flex-grow">여러 피드백을 한 댓글에 목록처럼 정리하면, 작업자가 한눈에 파악하기 좋습니다.</p>
+                <div class="bg-gray-800 text-white p-4 rounded-lg font-mono text-xs leading-relaxed shadow-inner h-full">
+                    <p class="text-gray-400">&gt; 영상 잘 봤습니다! 피드백입니다.</p>
+                    <p class="mt-2"><span class="text-cyan-400">00:35</span> <span class="text-gray-300">인트로 음악 볼륨 줄여주세요.</span></p>
+                    <p><span class="text-cyan-400">01:12</span> <span class="text-gray-300">자막 오타 ('되요' -> '돼요')</span></p>
+                    <p><span class="text-cyan-400">03:40</span> <span class="text-gray-300">이 부분 효과음 아주 좋아요! 👍</span></p>
+                    <p><span class="text-cyan-400">05:22</span> <span class="text-gray-300">마무리 멘트가 조금 빠릅니다.</span></p>
                 </div>
             </div>
 
         </main>
-
-        <!-- Footer -->
-        <footer class="text-center mt-20">
-            <p class="text-gray-500">이 가이드를 활용하여 더 명확하고 효율적인 영상 협업을 경험해 보세요.</p>
-        </footer>
-
     </div>
-
 </body>
 </html>
